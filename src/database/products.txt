@@ -1,0 +1,22 @@
+[
+  {
+    "name": "hyperex",
+    "price": 7900,
+    "urlImage": "https://http2.mlstatic.com/D_NQ_NP_2X_745312-MLA46504064560_062021-F.webp",
+    "description": "teclado mecanico 60% RGB QWERTY",
+    "code": 456,
+    "stock": 50,
+    "id": "1322fd0d-aba3-46c4-8075-c9b4fba981f5",
+    "timestamp": 1664485939109
+  },
+  {
+    "name": "logitech",
+    "price": 7900,
+    "urlImage": "https://http2.mlstatic.com/D_NQ_NP_2X_745312-MLA46504064560_062021-F.webp",
+    "description": "teclado mecanico 60% RGB QWERTY",
+    "code": 456,
+    "stock": 50,
+    "id": "d3c08099-8efa-4dcf-93eb-6367c67345e1",
+    "timestamp": 1664486129567
+  }
+]
