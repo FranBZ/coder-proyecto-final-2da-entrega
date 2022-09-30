@@ -1,4 +1,4 @@
-import { Contenedor } from '../contenedor.js'
+import { fsConteiner } from '../conteiners/fsConteiner.js'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename)
 
 const dbProducts = path.join(__dirname, '../database/products.txt')
 
-const prodcuts = new Contenedor(dbProducts)
+const prodcuts = new fsConteiner(dbProducts)
 
 const administrador = true
 

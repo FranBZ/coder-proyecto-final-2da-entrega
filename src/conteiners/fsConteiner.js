@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { v4 as newID } from 'uuid'
 
-export class Contenedor {
+export class fsConteiner {
     constructor (pathFile) {
         this.pathFile = pathFile
     }
@@ -74,6 +74,4 @@ export class Contenedor {
             throw new Error('Error al borrar en fs por id: ', error)
         }
     }
-
-        
 }

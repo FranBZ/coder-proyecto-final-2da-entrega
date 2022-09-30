@@ -1,4 +1,4 @@
-import { Contenedor } from '../contenedor.js'
+import { fsConteiner } from '../conteiners/fsConteiner.js'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -8,8 +8,8 @@ const __dirname = path.dirname(__filename)
 const dbCart = path.join(__dirname, '../database/cart.txt')
 const dbProducts = path.join(__dirname, '../database/products.txt')
 
-const carts = new Contenedor(dbCart)
-const productsCont = new Contenedor(dbProducts)
+const carts = new fsConteiner(dbCart)
+const productsCont = new fsConteiner(dbProducts)
 
 const saveCart = async (req, res) => {    // Esta funcion guarda un carrito nuevo
 

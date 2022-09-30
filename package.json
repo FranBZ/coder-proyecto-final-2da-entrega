@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/FranBZ/coder-proyecto-final-2da-entrega#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.1",
+    "mongoose": "^6.6.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
