@@ -31,6 +31,14 @@ carpetas separadas. No incluir los node_modules.</sup>
 - Debes clonar el repositorio
 - Abrir una terminal y en ella dirigirte a la carpeta con el nombre del proyecto
 - Ejecutar el comando ``` npm install ```
+- Deves configurar un archivo ``` .env ``` con los siguientes datos
+    ```
+    MONGO_USER = "<usuario de mongo atlas>"
+    MONGO_PASS = "<contraseña de mongo atlas>"
+    GOOGLE_APLICATION_CREDENTIALS = "path de las credenciales de firebase"
+    ```
+- Para poder probar los diferentes modos de percistencia debes dirigirte al archivo ``` daoSelect.js  ```
+que se encuentra en la carpeta ``` daos ``` del proyecto y comentar y descomentar segun corresponda 
 - Una vez finalizado el punto anterior, ejecutar el comando ``` npm run start ```
 - Luego puedes utilizar Postman, insomia o tu programa favorito para testear los diferentes 
 endpoints

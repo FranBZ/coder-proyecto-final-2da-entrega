@@ -4,7 +4,7 @@ const getProductById = async (req, res) => {  // Esta funcion devuelve un produc
     try {
        await productDao.getProductById(req, res)    
     } catch (error) {
-        console.error(`El error es: ${error}`)
+        res.status(400).json({ error: `${error}` })
     }  
 }
 
@@ -12,7 +12,7 @@ const saveProduct = async (req, res) => {        // Guarda un prodcuto nuevo
     try {
         await productDao.saveProduct(req, res)                                                              // Se lo pasamos al contendor
     } catch (error) {
-        console.error(`El error es: ${error}`)
+        res.status(400).json({ error: `${error}` })
     }
 }
 
@@ -20,7 +20,7 @@ const updateProductByID = async (req, res) => {  // Recibe y actualiza un produc
     try {
         await productDao.updateProductByID(req, res)
     } catch (error) {
-        console.error(`El error es: ${error}`)
+        res.status(400).json({ error: `${error}` })
     }
 }
 
@@ -29,7 +29,7 @@ const deleteProductById = async (req, res) => {   // Esta funcion elimina un pro
     try {
         await productDao.deleteProductById(req, res)
     } catch (error) {
-        console.error(`El error es: ${error}`)
+        res.status(400).json({ error: `${error}` })
     }
 }
 

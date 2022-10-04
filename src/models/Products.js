@@ -1,4 +1,4 @@
-/* import { Schema, model } from "mongoose"
+import { Schema, model } from "mongoose"
 
 const productsCollection = "products"
 
@@ -32,4 +32,4 @@ const productSchema = new Schema({
     versionKey: false
 })
 
-export const product = model(productsCollection, productSchema) */
+export const product = model(productsCollection, productSchema)

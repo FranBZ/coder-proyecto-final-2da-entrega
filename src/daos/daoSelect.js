@@ -1,30 +1,32 @@
 const PERS = 'fs'
+// const PERS = 'mongodb'
+// const PERS = 'firebase'
 
 let productDao
 let cartDao
 
 switch (PERS) {
-    /* case 'firebase':
-        const { default: ProductosDaoFirebase } = await import('./productos/ProductosDaoFirebase.js')
-        const { default: CarritosDaoFirebase } = await import('./carritos/CarritosDaoFirebase.js')
+    case 'firebase':
+        const { default: ProductDaoFirebase } = await import('./products/productDaoFirebase.js')
+        const { default: CartDaoFirebase } = await import('./carts/cartDaoFirebase.js')
 
-        productosDao = new ProductosDaoFirebase()
-        carritosDao = new CarritosDaoFirebase()
+        productDao = new ProductDaoFirebase()
+        cartDao = new CartDaoFirebase()
         break
     case 'mongodb':
-        const { default: ProductosDaoMongoDb } = await import('./productos/ProductosDaoMongoDb.js')
-        const { default: CarritosDaoMongoDb } = await import('./carritos/CarritosDaoMongoDb.js')
+        const { default: ProductDaoMongo } = await import('./products/productDaoMongo.js')
+        const { default: CartDaoMongo } = await import('./carts/cartDaoMongo.js')
 
-        productosDao = new ProductosDaoMongoDb()
-        carritosDao = new CarritosDaoMongoDb()
-        break */
+        productDao = new ProductDaoMongo()
+        cartDao = new CartDaoMongo()
+        break
 
     case 'fs':
-        const { default: productDaoFs } = await import('./products/productDaoFs.js')
-        const { default: cartDaoFs } = await import('./carts/cartDaoFs.js')
+        const { default: ProductDaoFs } = await import('./products/productDaoFs.js')
+        const { default: CartDaoFs } = await import('./carts/cartDaoFs.js')
 
-        productDao = new productDaoFs()
-        cartDao = new cartDaoFs()
+        productDao = new ProductDaoFs()
+        cartDao = new CartDaoFs()
         break
 }
 

@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { v4 as newID } from 'uuid'
 
-export class fsConteiner {
+export class FsConteiner {
     constructor (pathFile) {
         this.pathFile = pathFile
     }

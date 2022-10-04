@@ -1,23 +1,21 @@
-import { FsConteiner } from "../../conteiners/fsConteiner.js"
-import { dbsConfig } from "../../config.js"
-
-const prodcutsdb = dbsConfig.fileSystem.pathProduct
+import { MongoConteiner } from '../../conteiners/mongoConteiner.js'
+import { product } from '../../models/Products.js'
 
 const administrador = true
 
-class ProductDaoFs extends FsConteiner {
+class ProductDaoMongo extends MongoConteiner {
 
     constructor() {
-        super(prodcutsdb)
+        super(product)
     }
 
-    async getProductById (req, res) {  // Esta funcion devuelve un producto segun su ID
+    async getProductById (req, res) {  // Esta funcion devuelve un producto segun su ID o devuelve todos
         const { id } = req.params
         try {
             if (!id) {
-                res.send(await super.getAll())                         // en caso de no pasar id devolvemos todos los productos
+                res.send(await super.getAll())
             } else {
-                const product = await super.getByID(id)
+                const product = await super.getById(id)
                 if (product) {
                     res.send(product)
                 } else {
@@ -32,15 +30,15 @@ class ProductDaoFs extends FsConteiner {
     
     async saveProduct (req, res) {        // Guarda un prodcuto nuevo
         if (administrador == true) {
-            const { name, price, urlImage, description, code, stock } = req.body                              // Tomamos el cuerpo
+            const { name, price, urlImage, description, code, stock } = req.body                             
     
-            if (!name || !price || !urlImage || !description || !code || !stock) {                          // Comprobamos que el cuerpo este completo
+            if (!name || !price || !urlImage || !description || !code || !stock) {                          
                 res.status(400).json({ error: 'por favor ingrese todos los datos del producto' })
             } else {
     
-                const product = req.body                                                                      // Tomamos el cuerpo 
+                const product = req.body                                                                      
                 try {
-                    await super.save(product)                                                              // Se lo pasamos al contendor
+                    await super.save(product)                                                             
                     res.status(200).json({ messaje: 'producto guardado con exito' })
                 } catch (error) {
                     res.status(400).json({ error: `${error}` })
@@ -60,15 +58,15 @@ class ProductDaoFs extends FsConteiner {
                 res.status(400).json({ error: 'por favor ingrese todos los datos del producto' })
             } else {
                 try {
-                    const product = await super.getByID(id)
+                    const product = await super.getById(id)
                     if (product) {
-                        product.name = name
-                        product.price = price
-                        product.urlImage = urlImage
-                        product.description = description
-                        product.code = code
-                        product.stock = stock
-                        await super.updateById(id, product)
+                        product[0].name = name
+                        product[0].price = price
+                        product[0].urlImage = urlImage
+                        product[0].description = description
+                        product[0].code = code
+                        product[0].stock = stock
+                        await super.updateById(product[0])
                         res.status(200).json({ messaje: 'producto actualizado con exito' })
                     } else {
                         res.status(400).json({ error: 'producto no encontrado' })
@@ -97,4 +95,4 @@ class ProductDaoFs extends FsConteiner {
     }
 }
 
-export default ProductDaoFs
+export default ProductDaoMongo

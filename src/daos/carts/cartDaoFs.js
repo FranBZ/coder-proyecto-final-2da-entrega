@@ -1,10 +1,10 @@
-import { fsConteiner } from "../../conteiners/fsConteiner.js"
+import { FsConteiner } from "../../conteiners/fsConteiner.js"
 import { dbsConfig } from "../../config.js"
 
 const cartsdb = dbsConfig.fileSystem.pathCart
-const prodcutsdb = new fsConteiner(dbsConfig.fileSystem.pathProduct)
+const prodcutsdb = new FsConteiner(dbsConfig.fileSystem.pathProduct)
 
-class cartDaoFs extends fsConteiner {
+class CartDaoFs extends FsConteiner {
 
     constructor() {
         super(cartsdb)
@@ -18,7 +18,7 @@ class cartDaoFs extends fsConteiner {
             const db = await super.getAll()
             res.status(200).json({ messaje: `carrito creado con éxito, ID: ${db[db.length - 1].id}` })
         } catch (error) {
-            console.error(`El error es: ${error}`)
+            res.status(400).json({ error: `${error}` })
         }
     }
     
@@ -58,8 +58,9 @@ class cartDaoFs extends fsConteiner {
                 for (let i=0; i<arrID.length; i++) {
                     let prod = await prodcutsdb.getByID(arrID[i])
                     cart.products.push(prod)
-                    await super.updateById(id, cart)
+                    
                 }
+                await super.updateById(id, cart)
                 res.status(200).json({ messaje: 'productos agregados con exito'})
             } else {
                 res.status(400).json({ error: 'carrito no encontrado' })
@@ -94,4 +95,4 @@ class cartDaoFs extends fsConteiner {
     }
 }
 
-export default cartDaoFs
+export default CartDaoFs

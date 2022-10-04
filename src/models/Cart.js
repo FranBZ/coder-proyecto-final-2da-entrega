@@ -1,4 +1,4 @@
-/* import { Schema, model } from "mongoose"
+import { Schema, model } from "mongoose"
 
 const cartCollection = 'carts'
 
@@ -11,4 +11,4 @@ const cartSchema = Schema({
     versionKey: false
 })
 
-export const cart = model(cartCollection, cartSchema) */
+export const cart = model(cartCollection, cartSchema)
