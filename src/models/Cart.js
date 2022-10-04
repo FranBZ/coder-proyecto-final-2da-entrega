@@ -1,4 +1,6 @@
-import { Schema, model } from "mongoose"
+/* import { Schema, model } from "mongoose"
+
+const cartCollection = 'carts'
 
 const cartSchema = Schema({
     products: {
@@ -9,4 +11,4 @@ const cartSchema = Schema({
     versionKey: false
 })
 
-export default model('Cart', cartSchema)
+export const cart = model(cartCollection, cartSchema) */

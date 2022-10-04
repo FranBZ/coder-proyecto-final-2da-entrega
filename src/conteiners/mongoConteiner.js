@@ -1,5 +1,7 @@
-import { connect, disconnect } from "mongoose"
+/* import { connect, disconnect } from "mongoose"
 import { MONGO_URI_LOCAL } from "../config.js"
+import { product } from '../models/Products.js'
+import { cart } from '../models/Cart.js'
 
 const options = {
     useNewUrlParser: true,
@@ -8,12 +10,17 @@ const options = {
 
 export class mongoConteiner {
     constructor() { }
-
-    async getAll(model) { // Devuleve todo
+    /* ---------------------------------
+        |  CREANDO Y GUARDANDO UN USUARIO  |
+        --------------------------------- */
+        /* const user = { nombre: 'fran', email: 'fran@gmail.com' }
+        const userSchema = new users(user) 
+        const userSave = await userSchema.save()
+        console.log(userSave)
+    async getAll() { // Devuleve todo
         try {
             connect(MONGO_URI_LOCAL, options)
-            console.log('Conectado a mongodb, ', db)
-            const data = await model.find()
+            const data = await product.find()
             await disconnect()
             return data
         } catch (error) {
@@ -61,4 +68,4 @@ export class mongoConteiner {
             throw new Error('Error al borrar en fs por id: ', error)
         }
     }
-}
+} */
